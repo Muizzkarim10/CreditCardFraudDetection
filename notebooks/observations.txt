@@ -2,18 +2,17 @@ Highly imbalance data:
 Legitimate transactions = 99%
 Fraud transactions = 1%
 
-Testing Baseline model: Logistic Regression
+<< Baseline Logistic Regression >>
 
 ROC-AUC : 93%
-
-Classification Report:
+<< Classification Report >>
 
 Metric	        Fraud class
 Precision	        0.87
 Recall	            0.58
 F1	                0.70
 
-Confusion Metrix:
+<< Confusion Metrix >>
 
 1. 56,643 legitimate transactions correctly identified
 2. 8 legitimate transactions incorrectly flagged as fraud
@@ -30,7 +29,7 @@ get 100% accuracy even with 40 fraudulent cases missed.
 
 The base model's defualt threshold is 50 but it is not necessarily the best threshold.
 
-Threshold comparison
+<< Threshold comparison >>
 Threshold   Precision	Recall	F1
 0.1	          0.722	    0.684	0.703
 0.2	          0.808	    0.663	0.728
@@ -41,5 +40,47 @@ Threshold   Precision	Recall	F1
 We can see the model performs better at 0.1, 0,2 thresholds, although it has more false
 positives than before but it is also catching more fraud cases.
 
+<< Class-weighted Logistic Regression >>
+
+ROC-AUC: 96%
+<< Classification Report >>
+
+Metric	        Fraud class
+Precision	        5%
+Recall	            87%
+F1	                10%
+
+<< Confusion Metrix >>
+
+1. 12 missed
+2. 1,513 false alarms
+
+The missed cases droped from 40 to 8 but the Precision also dropped from 8 false
+alarms to 1513.
+
+This doesn't mean the model is bad, it depends on the business wether catching 87% of
+fraud is worth investigating 1500 legitimate cases.
 
 
+<< SMOTE >>
+-Synthetic Minority Over-sampling Technique: creates Synthetic lower class values in a imbalance dataset
+
+Class
+0    226602
+1    226602
+
+Equal number of values for both classes
+
+
+
+<< Classification Report >>
+
+Recall      85%
+Precision   13%
+F1          23%
+
+<< Confusion Matrix >>
+
+1. 81 fraud detected
+2. 14 missed
+3. 535 false alarms
