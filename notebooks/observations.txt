@@ -118,3 +118,14 @@ F1:         77%
 2. 20 missed
 3. 25 false alarms
 
+
+
+ << Final Evaluation >>
+
+| Model             | Precision | Recall | F1  | ROC-AUC |
+| Baseline Logistic | 87%       |   58%  | 70% |  0.936  |
+| SMOTE, unscaled   |     75%   |   79%  | 77% |  0.952  |
+| SMOTE + Scaling   |     76%   |   78%  | 77% |  0.954  |
+
+Almost same results on both scaled and unscaled data.
+Final Model: Scaled + SMOTE
