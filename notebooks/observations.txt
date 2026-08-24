@@ -1,0 +1,45 @@
+Highly imbalance data:
+Legitimate transactions = 99%
+Fraud transactions = 1%
+
+Testing Baseline model: Logistic Regression
+
+ROC-AUC : 93%
+
+Classification Report:
+
+Metric	        Fraud class
+Precision	        0.87
+Recall	            0.58
+F1	                0.70
+
+Confusion Metrix:
+
+1. 56,643 legitimate transactions correctly identified
+2. 8 legitimate transactions incorrectly flagged as fraud
+3. 55 fraudulent transactions detected
+4. 40 fraudulent transactions missed
+
+Although the roc-auc is 98% the recall for fraud class is 58% meaning
+we are on;y catching 58 out of every 100 fraud transactions, with a Precision
+of 87%, when the model says the transactions is a fraud it right 87% of the time.
+
+The model Accuracy is 100%, but in this case due to highly imbalance data the model
+can simply have 99% just by predicting only legitimate transactions, which is why we
+get 100% accuracy even with 40 fraudulent cases missed.
+
+The base model's defualt threshold is 50 but it is not necessarily the best threshold.
+
+Threshold comparison
+Threshold   Precision	Recall	F1
+0.1	          0.722	    0.684	0.703
+0.2	          0.808	    0.663	0.728
+0.3	          0.853	    0.611	0.712
+0.4	          0.875	    0.589	0.704
+0.5	          0.873	    0.579	0.696
+
+We can see the model performs better at 0.1, 0,2 thresholds, although it has more false
+positives than before but it is also catching more fraud cases.
+
+
+
