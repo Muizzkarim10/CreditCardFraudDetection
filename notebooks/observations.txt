@@ -84,3 +84,37 @@ F1          23%
 1. 81 fraud detected
 2. 14 missed
 3. 535 false alarms
+
+
+<< Final Test Evaluation >>
+
+Original data
+     │
+     ├── Training data ──┐
+     │                   │
+     │              Train/Validation
+     │                   │
+     │              ┌────┴────┐
+     │              ↓         ↓
+     │           Train      Validation
+     │              │
+     │            SMOTE
+     │              │
+     │            Model
+     │
+     └── Test ← untouched until the very end
+
+
+<< Classification Report >>
+
+ROC-AUC:    95%
+Recall:     79%
+Precision:  75%
+F1:         77%
+
+<< Confusion Metrix >>
+
+1. 75 fraud transactions detected
+2. 20 missed
+3. 25 false alarms
+
